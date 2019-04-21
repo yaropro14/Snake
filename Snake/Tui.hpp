@@ -30,7 +30,6 @@ private:
     struct termios old;
     void Xline(int y);
     void Yline(int x);
-    int x, y;
 };
 
 

@@ -7,7 +7,7 @@
 #include "Keypressable.hpp"
 
 
-class ControlHuman : public Control
+class ControlHuman : public Control, public Keypressable
 {
 public:
     ControlHuman(Snake * s);

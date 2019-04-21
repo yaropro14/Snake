@@ -4,11 +4,23 @@
 #include <stdio.h>
 #include <iostream>
 #include <list>
+#include <cstdlib>
+
 
 //#include "ControlHuman.hpp"
 
-using Coord = std::pair <int, int>;
+//using Coord = std::pair <int, int>;
+//using Rabbit = Coord;
+
+struct Coord : public std::pair<int, int>
+{
+    using Base = std::pair<int, int>;
+    int distance(const Coord & c) const;
+    using Base::Base;
+};
+
 using Rabbit = Coord;
+
 
 enum Dir
 {
@@ -28,7 +40,11 @@ class Snake {
 public:
     Snake();
     
+    bool alive;
+    
     void move();
+    
+    Coord NextPosition(Dir d, Coord a);
     
     Snake(const Snake & s):
     dir(s.dir), body(s.body)
@@ -59,8 +75,15 @@ public:
     
     std::list <Snake *> snakes;
     std::list <Rabbit> rabbits;
+    
     void paint(SnakePainter ps, RabbbitPainter pr);
     void add(Snake * s);
+    void rabbitgenerate();
+    bool checkplace(Coord c);
+    char checkplacesnake(Coord c);
+    Coord near(Coord c);
+    Coord GetFreeCoord();
+    void KillRabbit(Coord c);
 };
 
 

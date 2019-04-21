@@ -3,8 +3,7 @@
 
 Control::Control(Snake * s)
 {
-    View * v = View::get();
-    v->setonkey(this);
+    //View * v = View::get();
     snake = s;
 }
 

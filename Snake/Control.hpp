@@ -3,10 +3,11 @@
 
 #include <stdio.h>
 
-#include "Game.hpp"
-#include "View.hpp"
+//#include "Game.hpp"
+//#include "View.hpp"
+class Snake;
 
-class Control: public Keypressable
+class Control
 {
 public:
     Control(Snake * s);
